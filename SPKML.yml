@@ -1,0 +1,28 @@
+name: SPKML
+channels:
+  - defaults
+  - conda-forge
+  - nvidia
+  - pytorch
+  - anaconda
+dependencies:
+  - meshio
+  - python
+  - cupy
+  - matplotlib
+  - pandas
+  - plotly
+  - scikit-learn
+  - scipy
+  - seaborn
+  - tqdm
+  - optuna==3.6.1
+  - pip:
+    - safetensors
+    - timm
+    - opt-einsum
+    - tensordict==0.5.0
+    - torch
+    - torchvision
+    
+
