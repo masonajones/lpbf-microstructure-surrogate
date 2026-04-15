@@ -74,7 +74,7 @@ Model_name = "PoignantPenguin_MDnlgP90b256"
 
 # Provide name of csv file containing the metadata for microstructure and thermal training data:
 # Include .csv extension. Default: "data_points_metadata.csv"
-metadata_filename = "data_points_metadata_singleexcludedR90.csv"
+metadata_filename = "data_points_metadata.csv"
 
 # Percentage of data to be set aside for training (the rest will be used for testing)
 training_data_split = 0.90
