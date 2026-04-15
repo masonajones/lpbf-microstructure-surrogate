@@ -74,7 +74,7 @@ rng = np.random.default_rng()
 Model_name = "testing_parallel"
 
 # Provide name of data_points_metadata.csv for microstructure and thermal data:
-metadata_filename = "data_points_metadata_singleexcludedL60.csv"
+metadata_filename = "data_points_metadata.csv"
 
 # Percentage of data to be set aside for training (the rest will be used for testing)
 training_data_split = 0.50
