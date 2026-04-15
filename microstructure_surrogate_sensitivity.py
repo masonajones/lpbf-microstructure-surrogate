@@ -8,13 +8,6 @@ Calculates, but does not plot, the jacobians of the model's predictions with res
 Multiplies by average variance.
 
 Based on Convnext v1
-
-Using ViT guide from: 
-    https://towardsdatascience.com/implementing-visualttransformer-in-pytorch-184f9f16f632
-    
-Secondary guide from:
-    https://medium.datadriveninvestor.com/coding-the-vision-transformer-in-pytorch-part-2-the-implementation-a39d57e69c1a
-    
 """
 
 import numpy as np
@@ -72,7 +65,8 @@ Model_name = "PrancingPony2_ADnlgP90b256"
 # Currently assumes scratch home directory is /scratch/
 # Implemented for use with memmaps
 use_scratch = True
-scratch_dir = 'masjone' # 'masjone' #'mydir'
+scratch_dir = 'mydir'
+metadata_file = "data_points_metadata.csv"
 
 # Disable the pre-check to see if the raw data files exist:
 # Only set to true if the data dict has already been populated (and the raw files are gone)
@@ -81,14 +75,11 @@ DISABLE_RAW_FILE_CHECK = True
 device = "cuda:7" if torch.cuda.is_available() else "cpu"
 print(f"Using {device} device")
 
-def get_data_filenames(Testing, ensemble_size, ensemble_treatment, ensemble_comparison, Training, scratch_path):
+def get_data_filenames(Testing, ensemble_size, ensemble_treatment, ensemble_comparison, Training, scratch_path, metadata_file):
     MS_folders = [1,5,10,15,20,25,50,75,100,200]
 
     # load information about data
-    data_metadata = pd.read_csv("data_points_metadata.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_singleexcludedL30P225.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_singleexcludedInterp.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_singleexcludedn5.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
+    data_metadata = pd.read_csv(metadata_file, keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
 
     # Separate out the data we want to train on
     if Training == "All":
@@ -99,7 +90,6 @@ def get_data_filenames(Testing, ensemble_size, ensemble_treatment, ensemble_comp
     comparison_files = []    
     comparison_files_MS = []
 
-    
     training_files_MS = []
     training_files_thermal = []
     
@@ -1009,7 +999,7 @@ if __name__ == '__main__':
     else:
         scratch_path = ''
         
-    files = get_data_filenames(Testing, ensemble_size, ensemble_treatment, ensemble_comparison, Training, scratch_path)
+    files = get_data_filenames(Testing, ensemble_size, ensemble_treatment, ensemble_comparison, Training, scratch_path, metadata_file)
     dataset = InfSurrogateDataset(files, path= '/scratch/'+scratch_dir+'/data_tensordict', input_width = 25, ensemble_comparison = ensemble_comparison)
     print("finished loading")
     
