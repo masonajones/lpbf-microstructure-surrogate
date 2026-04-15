@@ -51,15 +51,7 @@ ensemble_comparison = False # Note: this should do nothing at present
 Training = "All"   # True "All" 
 # Set training to True when only using part of your available data
 
-Model_name = "PrancingPony2_ADnlgP90b256"
-#Model_name = "CosmicKiwi_ADnlgP25b256"
-#Model_name = "AmpleArtichoke_MDnlgP90b256"
-#Model_name = "PurplePanda_MDnlgP90b256"
-#Model_name = "PoingantPenguin_MDnlgP90b256"
-#Model_name = "WatchfulWombat_MDnlgP90b256"
-#Model_name = "EnergeticEmu_MDnlgP25b256"
-#Model_name = "BrilliantBalloon_MDnlgP90b256"
-#Model_name = "FancyFinches_MDnlgP90b256"
+Model_name = "PrancingPony_ADnlgP90b256"
 
 # Lets you use a scratch directory for the microstructure data if running in a different directory.
 # Currently assumes scratch home directory is /scratch/
