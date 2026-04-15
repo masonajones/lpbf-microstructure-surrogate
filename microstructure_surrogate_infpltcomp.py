@@ -66,7 +66,7 @@ Training = False   # True "All"
 # Setting this to True will plot only the bin with the highest probability
 single_bin_plot = False
 
-metadata_filename = "data_points_metadata_PrancingPonyHard.csv"
+metadata_filename = "data_points_metadata.csv"
 
 Model_name = "PrancingPony_ADnEC100P90b256"
 #Model_name = "CosmicKiwi_ADnlgP25b256"
