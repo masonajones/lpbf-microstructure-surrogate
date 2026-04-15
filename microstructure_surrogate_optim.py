@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 """
+This is a script for optimizing the hyperparameters of the microstructure surrogate model.
+This script is provided primarily for reference purposes and has not been updated to utilize the more advanced data frameworks of the full training and inference scripts, and does not support multi-GPU training.
+
 Created on Tue May 10 09:37:33 2022
 
 @author: mason
-
-Using ViT guide from: 
-    https://towardsdatascience.com/implementing-visualttransformer-in-pytorch-184f9f16f632
-    
-Secondary guide from:
-    https://medium.datadriveninvestor.com/coding-the-vision-transformer-in-pytorch-part-2-the-implementation-a39d57e69c1a
-    
 """
 
 import numpy as np
