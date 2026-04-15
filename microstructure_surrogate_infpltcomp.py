@@ -3,7 +3,7 @@
 This is the microstructure surrogate inference script, intended for comparing predictions to microstructure ensembles.
 
 Needs Microstructure data stored locally, use:
-rsync -av --exclude *.tar.xz /gpfs/masjone/MS_data/ .
+rsync -av --exclude *.tar.xz <mylocaldir>/MS_data/ .
 from scratch directory
 
 Created on Tue May 10 09:37:33 2022
@@ -91,11 +91,6 @@ def get_data_filenames(Testing, ensemble_size, ensemble_treatment, ensemble_comp
 
     # load information about data
     data_metadata = pd.read_csv(metadata_filename, keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_LEcompare.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_PrancingPonylg.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_singleexcludedL30P225.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_singleexcludedInterp.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
-    #data_metadata = pd.read_csv("data_points_metadata_singleexcludedn5.csv", keep_default_na = False, dtype={'ModelLayersThermal': str, 'LargestEnsemble': str})
 
     # Separate out the data we want to train on
     if Training == "All" or Training == "all":
