@@ -9,13 +9,6 @@ from scratch directory
 Created on Tue May 10 09:37:33 2022
 
 @author: mason
-
-Using ViT guide from: 
-    https://towardsdatascience.com/implementing-visualttransformer-in-pytorch-184f9f16f632
-    
-Secondary guide from:
-    https://medium.datadriveninvestor.com/coding-the-vision-transformer-in-pytorch-part-2-the-implementation-a39d57e69c1a
-    
 """
 
 import numpy as np
@@ -84,7 +77,7 @@ Model_name = "PrancingPony_ADnEC100P90b256"
 # Currently assumes scratch home directory is /scratch/
 # Implemented for use with memmaps
 use_scratch = True
-scratch_dir = 'mydir' # 'masjone' #'mydir'
+scratch_dir = 'mydir'
 
 # Disable the pre-check to see if the raw data files exist:
 # Set to true if there is no microstructure data to compare against
