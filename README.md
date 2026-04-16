@@ -14,26 +14,23 @@ Core files in this repository include:
 
 - `PrancingPony_ADnlgP90b256_final.pt` — pre-trained surrogate model weights for inference.
 - `SPKML.yml` — Conda environment specification for the Python dependencies used by the project.
-- `data_points_metadata.csv` — metadata table used by the scripts to identify the thermal and microstructure data files to load.
-- `microstructure_surrogate_train.py` — primary multi-GPU training script using PyTorch Distributed Data Parallel and TensorDict memmaps.
+- `data_points_metadata.csv` — metadata table used to indicate which thermal and microstructure data files to load.
+- `microstructure_surrogate_train.py` — main multi-GPU training script using PyTorch Distributed Data Parallel and TensorDict memmaps.
 - `microstructure_surrogate_DDP_tensordict_optim.py` — distributed hyperparameter-optimization workflow under active development.
 - `microstructure_surrogate_optim.py` — earlier hyperparameter-optimization workflow.
-- `microstructure_surrogate_infpltcomp.py` — inference script for generating surrogate predictions and, when comparison is enabled and reference microstructure histogram data are available, comparing them against microstructure ensembles and producing plots.
-- `microstructure_surrogate_sensitivity.py` — sensitivity-analysis script that computes Jacobian-based statistics of the model outputs with respect to the thermal input cubes.
+- `microstructure_surrogate_infpltcomp.py` — inference and accuracy measurement script.
+- `microstructure_surrogate_sensitivity.py` — Jacobian-based sensitivity statistics of the model outputs with respect to the thermal input cubes.
 - `thermal_analysis.py` — script for analyzing and plotting the thermal characteristics used as model inputs.
 
 ## Installation
 
-Clone the repository:
+Clone the repository and create the Conda environment:
+
 
 ```bash
 git clone https://github.com/masonajones/lpbf-microstructure-surrogate.git
 cd lpbf-microstructure-surrogate
-```
 
-Create the Conda environment:
-
-```bash
 conda env create -f SPKML.yml
 conda activate SPKML
 ```
